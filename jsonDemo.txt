@@ -1,0 +1,86 @@
+{
+    "pipeline": {
+        "stages": [
+            {
+                "name": "阶段2-1",
+                "parallel": [
+                    {
+                        "branches": [
+                            {
+                                "name": "default",
+                                "steps": [
+                                    {
+                                        "name": "sh",
+                                        "arguments": {
+                                            "isLiteral": true,
+                                            "value": "echo hello CODING"
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "name": "阶段2-1"
+                    },
+                    {
+                        "branches": [
+                            {
+                                "name": "default",
+                                "steps": [
+                                    {
+                                        "name": "sleep",
+                                        "arguments": [
+                                            {
+                                                "key": "time",
+                                                "value": {
+                                                    "isLiteral": true,
+                                                    "value": 5
+                                                }
+                                            },
+                                            {
+                                                "key": "unit",
+                                                "value": {
+                                                    "isLiteral": true,
+                                                    "value": "SECONDS"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "name": "阶段 1-2"
+                    }
+                ]
+            },
+            {
+                "branches": [
+                    {
+                        "name": "default",
+                        "steps": [
+                            {
+                                "name": "echo",
+                                "arguments": {
+                                    "isLiteral": true,
+                                    "value": "aaa"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "name": "阶段名称"
+            }
+        ],
+        "agent": {
+            "type": "any"
+        },
+        "environment": [
+            {
+                "key": "abc",
+                "value": {
+                    "isLiteral": true,
+                    "value": "aaa"
+                }
+            }
+        ]
+    }
+}
